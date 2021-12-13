@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ChestCov19</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2781/2781395.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    <script type=text/javascript src="{{
+    url_for('static', filename='script/app.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+    <header>
+        <img style="width: 3%; height: 3%" class="logo" src="{{url_for('static', filename='covid-19.svg')}}">
+        <nav>
+            <ul class="nav__links">
+                <li><a href="/">Home</a></li>
+                <li><a href="info">Info Covid</a></li>
+                <li><a href="about">About Us</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="contact"><button>Contact</button></a>
+    </header>
+
+    <!-- untuk di isi nanti -->
+
+    <div class="text-center portfolio1">
+        <h1 class="section-headtext-uppercase">Perkembangan Covid Di Indonesia<br><br></h2>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <div class="card-konfirm">
+                <h1 id="totalcase">Loading...</h1>
+                <h2>Terkonfirmasi</h2>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card-death">
+                <h1 id="death">Loading...</h1>
+                <h2>Meninggal</h2>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card-recover">
+                <h1 id="recover">Loading...</h1>
+                <h2>Sembuh</h2>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card-lastupdate">
+                <h1 id="lastupdate">Loading...</h1>
+                <h2>Terupdate</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        fetch('https://covid19.mathdro.id/api/countries/indonesia')
+            .then(res => res.json())
+            .then(data => document.getElementById("totalcase").innerHTML = data.confirmed.value.toString().replace(
+                /\B(?=(\d{3})+(?!\d))/g, ","));
+
+        fetch('https://covid19.mathdro.id/api/countries/indonesia')
+            .then(res => res.json())
+            .then(data => document.getElementById("death").innerHTML = data.deaths.value.toString().replace(
+                /\B(?=(\d{3})+(?!\d))/g, ","));
+
+        fetch('https://covid19.mathdro.id/api/countries/indonesia')
+            .then(res => res.json())
+            .then(data => document.getElementById("recover").innerHTML = data.recovered.value.toString().replace(
+                /\B(?=(\d{3})+(?!\d))/g, ","));
+
+        fetch('https://covid19.mathdro.id/api/countries/indonesia')
+            .then(res => res.json())
+            .then(data => document.getElementById("lastupdate").innerHTML = new Date(data.lastUpdate)
+                .toLocaleDateString('pt-PT'));
+    </script>
+
+
+    <section class="page-section" id="portfolio">
+        <div class="container p-4">
+            <div class="text-center portfolio1">
+                <h1 class="section-headtext-uppercase">Berita<br><br></h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="/info/virus_corona_omicron">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid"
+                                src="https://cdn.pixabay.com/photo/2020/05/15/18/46/corona-5174671_960_720.jpg"
+                                alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Update Soal Kadinkes Bekasi Temukan 4 Warga DKI
+                                Terpapar Omicron</div>
+                            <div class="portfolio-caption-subheading text-muted">Reporter : Adi Nugroho (Merdeka.com)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="/info/bos_pfizer_cemas_omicron">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid"
+                                src="https://cdn.pixabay.com/photo/2020/12/13/23/40/woman-5829666_960_720.jpg" alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Bos Pfizer Ungkap Kecemasannya pada Covid-19 Varian
+                                Omicron</div>
+                            <div class="portfolio-caption-subheading text-muted">Novina Putri Bestari, CNBC Indonesia
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="/info/100_juta_rakyat_telah_divaksin">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid"
+                                src="https://cdn.pixabay.com/photo/2016/02/22/11/20/vaccination-1215279_960_720.jpg"
+                                alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">100 Juta Warga Indonesia Telah Divaksinasi COVID-19
+                                Dosis Lengkap</div>
+                            <div class="portfolio-caption-subheading text-muted">by Rokom Kementerian Kesehatan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container p-4" style="margin-top: 10px;">
+            <div class="text-center portfolio1">
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="/info/kemenkes_bantah_varian_omicron">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid"
+                                src="https://cdn.pixabay.com/photo/2021/11/29/16/51/omicron-6833018_960_720.jpg"
+                                alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Pemkab Bekasi Umumkan Covid Omicron Masuk, Kemenkes
+                                Bantah!</div>
+                            <div class="portfolio-caption-subheading text-muted">CNBC Indonesia</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="/info/pembatasan_akhir_tahun_harus">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid"
+                                src="https://cdn.pixabay.com/photo/2020/07/20/12/08/couple-5422795_960_720.jpg"
+                                alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Pengamat: Pembatasan mobilitas akhir tahun diperlukan
+                                cegah COVID-19</div>
+                            <div class="portfolio-caption-subheading text-muted">antaranews.com</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="/info/covid_dorong_digitalisasi_pendidikan">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid"
+                                src="https://cdn.pixabay.com/photo/2020/06/11/04/02/mask-5285090_960_720.jpg" alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Stafsus Presiden: COVID-19 dorong tren digitalisasi
+                                pendidikan</div>
+                            <div class="portfolio-caption-subheading text-muted">antaranews.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </main>
+
+</body>
+
+<footer>
+    <span>
+        <center>CSD-027 &copy 2021 </center>
+    </span>
+</footer>
+
+</html>

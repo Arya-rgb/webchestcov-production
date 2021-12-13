@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>ChestCov19</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2781/2781395.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+  <script type=text/javascript src="{{
+    url_for('static', filename='script/app.js') }}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+  <header>
+    <img style="width: 3%; height: 3%" class="logo" src="{{url_for('static', filename='covid-19.svg')}}">
+    <nav>
+      <ul class="nav__links">
+        <li><a href="/">Home</a></li>
+        <li><a href="info">Info Covid</a></li>
+        <li><a href="about">About Us</a></li>
+      </ul>
+    </nav>
+    <a class="cta" href="contact"><button>Contact</button></a>
+  </header>
+
+  <!-- untuk di isi nanti -->
+    <div class="container">
+      <div class="col service-panel">
+        <div class="col">
+          <h1 class="display-4"><bold>Tentang Aplikasi</bold></h1>
+          <img class="imageabout" src="https://www.sentineldiagnostics.com/wp-content/uploads/home-slider-covid-19.jpg">
+          <p class="lead">
+            <br>
+            "Aplikasi ini merupakan aplikasi berbasis Website yang digunakan untuk mendeteksi kondisi Chest X-Ray terinfeksi penyakit Covid atau tidak.
+            Aplikasi ini berguna sebagai pendukung keputusan dokter dalam mendiagnosis penyakit, apakah kondisi paru-paru pasien dalam keadaan normal, terinfeksi Covid19, atau Pneunomia.
+            Harapannya dengan ada aplikasi ini dapat mempermudah tenaga medis sebagai garda terdepan untuk mengatasi Covid19 yang sedang memarak di Indonesia."
+          </br>
+          </p>
+          <hr class="my-4">
+        </div>
+      </div>
+    </div>
+
+</body>
+
+<footer>
+  <span><center>CSD-027 &copy 2021 </center></span>
+</footer>
+
+</html>
